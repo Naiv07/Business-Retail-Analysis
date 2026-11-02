@@ -4,7 +4,7 @@ A Power BI dashboard and root cause analysis of an online retailer's sales, buil
 
 **Question I set out to answer:** why did monthly revenue roughly double between August and November 2011, and what drove it?
 
-![Dashboard overview](images/dashboard.png)
+![Dashboard overview](images/dashboard-overview.png)
 <!-- ADD: dashboard screenshot at images/dashboard.png -->
 
 ## Dataset
