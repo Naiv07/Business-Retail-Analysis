@@ -27,7 +27,21 @@ Python, pandas, Power BI, DAX
 ## What I built
 
 **1. Data cleaning (pandas)**
-<!-- ADD: 2-3 real cleaning steps from your notebook, e.g. how you handled cancelled invoices, negative quantities, missing CustomerID -->
+- Removed cancelled invoices (InvoiceNo starting with `C`) and rows with zero or negative quantity or unit price, so revenue reflects completed sales only.
+- Converted `InvoiceDate` to a proper datetime, added a `Month` column, and kept a plain date for the Power BI date relationship.
+- Rows with no CustomerID were kept in the revenue figures, and flagged separately in the analysis (see Limitations).
+
+```python
+cleaning_records = data[
+    ~data['InvoiceNo'].astype(str).str.startswith('C') &
+    (data['Quantity'] > 0) &
+    (data['UnitPrice'] > 0)
+].copy()
+
+cleaning_records['InvoiceDate'] = pd.to_datetime(cleaning_records['InvoiceDate'], format='%Y-%m-%d %H:%M:%S')
+cleaning_records['Month'] = cleaning_records['InvoiceDate'].dt.to_period('M')
+cleaning_records['InvoiceDate'] = cleaning_records['InvoiceDate'].dt.date
+```
 
 **2. Date table and time intelligence (DAX)**
 - A dedicated `All_dates` table (one row per day, marked as the date table) related to the sales table.
@@ -58,9 +72,8 @@ Findings:
 
 ## Files
 
-<!-- ADD: list your real file names, e.g. -->
-- `retail_dashboard.pbix`: the Power BI report
-- `analysis.ipynb`: data cleaning and checks in pandas
+- `Online_Retail_Clean.pbix`: the Power BI report
+- `Business Retail.py`: data cleaning and verification checks in pandas
 - Dashboard screenshots (`.png`)
 
 ## How to open
