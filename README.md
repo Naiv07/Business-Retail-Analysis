@@ -4,8 +4,15 @@ A Power BI dashboard and root cause analysis of an online retailer's sales, buil
 
 **Question I set out to answer:** why did monthly revenue roughly double between August and November 2011, and what drove it?
 
-![Dashboard overview](images/1.png)
-<!-- ADD: dashboard screenshot at images/dashboard.png -->
+## Dashboard
+
+**Page 1: Business Revenue Dashboard.** Year and country slicers, revenue cards, cumulative sales, monthly trend, month-over-month change.
+
+![Business Revenue Dashboard](Screenshot%202026-11-02%20142244.png)
+
+**Page 2: United Kingdom revenue details.** Revenue, orders, customers and orders per customer by country, top products in November 2011, and the share of revenue with no CustomerID.
+
+![United Kingdom Revenue Details](Screenshot%202026-11-02%20142145.png)
 
 ## Dataset
 
@@ -54,7 +61,7 @@ Findings:
 <!-- ADD: list your real file names, e.g. -->
 - `retail_dashboard.pbix`: the Power BI report
 - `analysis.ipynb`: data cleaning and checks in pandas
-- `images/`: dashboard screenshots
+- Dashboard screenshots (`.png`)
 
 ## How to open
 
